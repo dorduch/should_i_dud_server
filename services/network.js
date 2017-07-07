@@ -20,7 +20,7 @@ function getHistoryWeatherOld (query, time) {
 function getHistoryWeather({lat, lon, time}) {
   const url = apiUrl.expand ({apiKey, lat, lon, time});
   const reqParams = {
-    exclude: ['currently', 'hourly', 'alerts', 'flags'].toString (),
+    // exclude: ['currently', 'hourly', 'alerts', 'flags'].toString (),
     units: 'si',
   };
   return axios.get (url, {params: reqParams});

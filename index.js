@@ -7,9 +7,9 @@ app.use (cors ());
 
 function getCloudCoverage (req, res) {
   weatherService
-    .getCloudCoverage (req.query.lat, req.query.lon, req.query.time)
+    .getCloudCoverage (req.query.lat, req.query.lon, req.query.time, req.query.hours)
     .then (function (result) {
-      res.send (result.toString ());
+      res.send (JSON.stringify(result));
     });
   return res;
 }
@@ -17,5 +17,5 @@ function getCloudCoverage (req, res) {
 app.get ('/cloudcoverage', getCloudCoverage);
 var port = process.env.PORT || 8080;
 app.listen (port, function () {
-  console.log ('Example app listening on port 3000!');
+  console.log ('Example app listening on port'+port);
 });

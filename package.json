@@ -1,0 +1,12 @@
+{
+  "name": "should_i_dud_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "express": "^4.15.3",
+    "moment": "^2.18.1",
+    "url-template": "^2.0.8"
+  }
+}

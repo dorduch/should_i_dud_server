@@ -17,7 +17,7 @@ function getCloudCoverage (req, res) {
 
 function getAddress (req, res) {
   locationService
-    .getAddress (req.query.lat, req.query.lon,)
+    .getAddress (req.query.lat, req.query.lon)
     .then (function (result) {
       res.send (result.toString());
     });
@@ -26,7 +26,7 @@ function getAddress (req, res) {
 
 
 app.get ('/cloudcoverage', getCloudCoverage);
-app.get ('/getAddress', getAddress);
+app.get ('/getaddress', getAddress);
 var port = process.env.PORT || 8080;
 app.listen (port, function () {
   console.log ('Example app listening on port'+port);

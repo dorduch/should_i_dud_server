@@ -7,6 +7,7 @@ const apiUrl = template.parse (
   'https://api.darksky.net/forecast/{apiKey}/{lat},{lon},{time}'
 ); //darksky
 const apiKey = '1b40a3428e9099642baa36e54ff0b413'; //darksky
+const googleLocationUrl = 'http://maps.googleapis.com/maps/api/geocode/json'
 
 function getHistoryWeatherOld (query, time) {
   const reqParams = {
@@ -15,6 +16,14 @@ function getHistoryWeatherOld (query, time) {
     dt: time,
   };
   return axios.get (apiUrl, {params: reqParams});
+}
+
+function getAddressByLocation(lat, lon) {
+  const reqParams = {
+    sensor: true,
+    latlng: `${lat},${lon}`
+  }
+   return axios.get(googleLocationUrl, {params: reqParams})
 }
 
 function getHistoryWeather({lat, lon, time}) {
@@ -74,4 +83,5 @@ function getHistoryWeather({lat, lon, time}) {
 
 module.exports = {
   getHistoryWeather: getHistoryWeather,
+  getAddressByLocation: getAddressByLocation
 };
